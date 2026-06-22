@@ -10,6 +10,7 @@ import Providers from "@/components/providers";
 import { jaguar, neueMontreal } from "@/app/assets/fonts";
 import { SanityLive } from "@/lib/sanity/lib/live";
 import { cn } from "@/lib/utils";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -82,6 +83,7 @@ export default function RootLayout({
 				</Providers>
 				<BreakpointIndicator />
 				<SanityLive />
+				<GoogleAnalytics gaId="G-N3D28GZSBM" />
 			</body>
 		</html>
 	);
