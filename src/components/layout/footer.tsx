@@ -157,6 +157,108 @@ export const Footer = async () => {
 						</div>
 					</nav>
 				</section>
+				{/* App Coming Soon Section */}
+				<section
+					aria-label="Mobile app coming soon"
+					className="my-2 rounded-lg border border-white/10 bg-white/5 px-6 py-8 backdrop-blur-sm md:px-10 md:py-10"
+				>
+					<div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-between">
+						{/* Left: App logo + heading */}
+						<div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:gap-6">
+							{/* App Logo */}
+							<div
+								aria-label="Piptan app logo"
+								className="h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-white/20 shadow-lg"
+							>
+								<Image
+									alt="Piptan Investment mobile app logo"
+									className="h-full w-full object-cover"
+									height={80}
+									src="/app-logo.png"
+									unoptimized
+									width={80}
+								/>
+							</div>
+							<div className="text-center md:text-left">
+								<p className="font-semibold text-primary text-xs uppercase tracking-widest">
+									Mobile App
+								</p>
+								<h4 className="mt-1 font-bold text-white text-xl md:text-2xl">
+									Coming Soon
+								</h4>
+								<p className="mt-1 max-w-xs text-primary-foreground/70 text-sm">
+									The Piptan Investment app is on its way. Be the first to
+									experience premium real estate on your phone.
+								</p>
+							</div>
+						</div>
+
+						{/* Right: Store badges */}
+						<div className="flex flex-col items-center gap-3 sm:flex-row md:shrink-0">
+							{/* App Store badge */}
+							<div
+								aria-label="Coming soon on App Store"
+								className="flex cursor-not-allowed items-center gap-3 rounded-lg border border-white/20 bg-white/10 px-5 py-3 opacity-70 transition-opacity hover:opacity-90"
+								title="Coming soon on the App Store"
+							>
+								<svg
+									aria-hidden="true"
+									className="h-7 w-7 shrink-0 fill-white"
+									viewBox="0 0 24 24"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+								</svg>
+								<div className="leading-tight">
+									<p className="font-medium text-[10px] text-white/70">
+										Coming soon on the
+									</p>
+									<p className="font-semibold text-sm text-white">App Store</p>
+								</div>
+							</div>
+
+							{/* Play Store badge */}
+							<div
+								aria-label="Coming soon on Google Play"
+								className="flex cursor-not-allowed items-center gap-3 rounded-lg border border-white/20 bg-white/10 px-5 py-3 opacity-70 transition-opacity hover:opacity-90"
+								title="Coming soon on Google Play"
+							>
+								<svg
+									aria-hidden="true"
+									className="h-7 w-7 shrink-0"
+									viewBox="0 0 24 24"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M3.18 23.76A2 2 0 0 1 2 22V2a2 2 0 0 1 1.18-1.76l11.65 11.76z"
+										fill="#EA4335"
+									/>
+									<path
+										d="M20.54 10.27 17.1 8.34 13.6 12l3.5 3.66 3.44-1.93a2 2 0 0 0 0-3.46z"
+										fill="#FBBC04"
+									/>
+									<path
+										d="M3.18.24 14.83 12 3.18 23.76A2 2 0 0 1 2 22V2A2 2 0 0 1 3.18.24z"
+										fill="#34A853"
+									/>
+									<path
+										d="M13.6 12 3.18.24a2 2 0 0 1 2.25.43l12.17 7.67z"
+										fill="#4285F4"
+									/>
+								</svg>
+								<div className="leading-tight">
+									<p className="font-medium text-[10px] text-white/70">
+										Coming soon on
+									</p>
+									<p className="font-semibold text-sm text-white">
+										Google Play
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<Separator />
 				<div
 					className="flex flex-col items-center justify-between gap-4 pt-6 pb-8 text-muted-foreground text-xs md:flex-row md:pt-9 md:pb-12 md:text-sm"
