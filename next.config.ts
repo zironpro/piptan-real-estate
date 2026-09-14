@@ -13,6 +13,21 @@ const nextConfig: NextConfig = {
 	//     fullUrl: true,
 	//   },
 	// },
+	async redirects() {
+		return [
+			{
+				source: "/:path*",
+				has: [
+					{
+						type: "host",
+						value: "www.piptan.ae",
+					},
+				],
+				destination: "https://piptan.ae/:path*",
+				permanent: true,
+			},
+		];
+	},
 	experimental: {
 		turbopackFileSystemCacheForDev: true,
 		turbopackFileSystemCacheForBuild: true,
