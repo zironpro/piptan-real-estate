@@ -31,6 +31,7 @@ import { PropertiesListSkeleton } from "@/features/properties/components/propert
 import { PropertyCard } from "@/features/properties/components/property-card";
 import { client } from "@/lib/sanity/lib/client";
 import { CATEGORIES_QUERY } from "@/lib/sanity/queries/categories-queries";
+import { buildMetadata, buildSanityOgImage } from "@/lib/seo";
 
 const meta = {
 	title: "Real Estate Portfolio — Dubai & Abu Dhabi Projects | Piptan",
@@ -73,11 +74,27 @@ export async function generateMetadata({
 		? `${categoryMeta.name} | Piptan Real Estate Portfolio`
 		: meta.title;
 	const description = categoryMeta?.description || meta.description;
-	const url = `https://piptan.ae/portfolio/${category}`;
 
-	return {
+	let ogImage;
+	try {
+		const categoryData = await client.fetch(
+			`*[_type == "category" && slug.current == $category][0]{ title, image }`,
+			{ category }
+		);
+		if (categoryData?.image) {
+			ogImage = buildSanityOgImage(
+				categoryData.image,
+				categoryData.image.alt || title
+			);
+		}
+	} catch (error) {
+		console.error("Error fetching category OG image:", error);
+	}
+
+	return buildMetadata({
 		title,
 		description,
+		path: `/portfolio/${category}`,
 		keywords: [
 			"Dubai real estate projects",
 			"Abu Dhabi property investment",
@@ -86,44 +103,8 @@ export async function generateMetadata({
 			"Dubai property investments",
 			"Abu Dhabi real estate opportunities",
 		],
-		openGraph: {
-			type: "website",
-			title,
-			description,
-			url,
-			siteName: "Piptan Investment",
-			locale: "en_US",
-			images: [
-				{
-					url: "/images/hero.webp",
-					width: 1200,
-					height: 630,
-					alt: "Piptan UAE real estate portfolio in Dubai and Abu Dhabi",
-				},
-			],
-		},
-		twitter: {
-			card: "summary_large_image",
-			title,
-			description,
-			images: ["/images/hero.webp"],
-		},
-		robots: {
-			index: true,
-			follow: true,
-			googleBot: {
-				index: true,
-				follow: true,
-				"max-video-preview": -1,
-				"max-image-preview": "large",
-				"max-snippet": -1,
-			},
-		},
-		alternates: {
-			canonical: url,
-		},
-		metadataBase: new URL("https://piptan.ae"),
-	};
+		image: ogImage,
+	});
 }
 
 // Enable caching with revalidation every 5 minutes

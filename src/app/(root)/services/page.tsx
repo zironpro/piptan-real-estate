@@ -9,15 +9,14 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Separator } from "@/components/ui/separator";
 
 import { SERVICES } from "@/constants/mock-data";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
 	title: "Real Estate Services in Dubai | Piptan Investment",
 	description:
 		"Comprehensive real estate solutions for buying, selling, investing, and managing property in Dubai and the UAE with Piptan.",
-	alternates: {
-		canonical: "https://piptan.ae/services",
-	},
-};
+	path: "/services",
+});
 
 export default function ServicesPage() {
 	return (

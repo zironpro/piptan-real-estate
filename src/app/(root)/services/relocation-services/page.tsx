@@ -28,16 +28,24 @@ import {
 	whyInvestmentSenseData,
 } from "./data";
 
-export const metadata: Metadata = {
-	title: "Relocation Services in Dubai for Investors and Families",
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+	title: "Relocation Services in Dubai for Investors and Families | Piptan Investment",
 	description:
 		"Move to Dubai with confidence through Piptan relocation services. Get expert property search, settling in support, and guidance for smart real estate decisions.",
-	keywords:
-		"Relocation Services Dubai, Investment Portfolio Diversification, Capital Appreciation, Rental Yield, Strategic Property Investment, Premium Investment Opportunities, Institutional & HNI Investments, Global Property Investors",
-	alternates: {
-		canonical: "https://piptan.ae/services/relocation-services",
-	},
-};
+	path: "/services/relocation-services",
+	keywords: [
+		"Relocation Services Dubai",
+		"Investment Portfolio Diversification",
+		"Capital Appreciation",
+		"Rental Yield",
+		"Strategic Property Investment",
+		"Premium Investment Opportunities",
+		"Institutional & HNI Investments",
+		"Global Property Investors",
+	],
+});
 
 export default function RelocationServicesPage() {
 	const serviceSchema = {

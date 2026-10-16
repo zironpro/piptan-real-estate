@@ -5,14 +5,14 @@ import Script from "next/script";
 
 import { Separator } from "@/components/ui/separator";
 
-export const metadata: Metadata = {
-	title: "Terms of Service",
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+	title: "Terms of Service | Piptan Investment UAE",
 	description:
 		"Terms of Service for Piptan Capital L.L.C - Real Estate Investment Services in Dubai, UAE",
-	alternates: {
-		canonical: "https://piptan.ae/legal/terms-of-service",
-	},
-};
+	path: "/legal/terms-of-service",
+});
 
 export default function TermsOfServicePage() {
 	const currentYear = new Date().getFullYear();

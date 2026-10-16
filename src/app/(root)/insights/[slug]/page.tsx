@@ -12,6 +12,7 @@ import {
 } from "@/features/insights/actions/query";
 import { InsightContent } from "@/features/insights/components/insight-content";
 import { urlFor } from "@/lib/sanity/image";
+import { buildMetadata, buildSanityOgImage } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const BASE_URL = "https://piptan.ae";
@@ -49,19 +50,20 @@ export async function generateMetadata({
 	const insight = await getInsightBySlugStatic(slug);
 
 	if (!insight) {
-		return {
-			title: "Insight Not Found | Piptan Capital Middle-East",
-			description:
-				"The requested insight could not be found on Piptan Capital Middle-East.",
-		};
+		return buildMetadata({
+			title: "Insight Not Found | Piptan Investment",
+			description: "The requested insight could not be found.",
+			path: `/insights/${slug}`,
+			noIndex: true,
+		});
 	}
 
 	const metaTitle =
-		insight.seo?.meta_title || `${insight.title} | Piptan Capital Middle East`;
+		insight.seo?.meta_title || `${insight.title} | Piptan Investment`;
 	const metaDescription =
 		insight.seo?.meta_description ||
 		insight.excerpt ||
-		"Expert real estate insights from Piptan Capital Middle East on the Dubai property market.";
+		"Expert real estate insights from Piptan Investment on the Dubai property market.";
 
 	const metaKeywords =
 		insight.seo?.meta_keywords
@@ -76,60 +78,25 @@ export async function generateMetadata({
 			"Piptan Investments insights",
 		].filter(Boolean);
 
-	const url = `${BASE_URL}/insights/${slug}`;
+	const imageSource = insight.seo?.ogImage || insight.image;
+	const ogImage = imageSource
+		? buildSanityOgImage(
+				imageSource,
+				insight.image?.alt || insight.title || "Piptan Investment Insight"
+			)
+		: undefined;
 
-	return {
+	return buildMetadata({
 		title: metaTitle,
 		description: metaDescription,
 		keywords: metaKeywords,
-		alternates: {
-			canonical: url,
-		},
-		openGraph: {
-			title: metaTitle,
-			description: metaDescription,
-			url,
-			type: "article",
-			publishedTime: insight.createdAt,
-			modifiedTime: insight.updatedAt || insight.createdAt,
-			images: insight.seo?.ogImage
-				? [
-						{
-							url: urlFor(insight.seo.ogImage).url(),
-							width: 1200,
-							height: 630,
-							alt: insight.title || "Insight image",
-						},
-					]
-				: insight.image?.asset?.url
-					? [
-							{
-								url: insight.image.asset.url,
-								width: insight.image.asset.metadata?.dimensions?.width || 1200,
-								height: insight.image.asset.metadata?.dimensions?.height || 630,
-								alt: insight.image.alt || insight.title || "Insight image",
-							},
-						]
-					: [
-							{
-								url: "/images/blogs/transport-logistics-products.jpg",
-								width: 1200,
-								height: 630,
-								alt: "Piptan Investments Dubai real estate insight",
-							},
-						],
-		},
-		twitter: {
-			card: "summary_large_image",
-			title: metaTitle,
-			description: metaDescription,
-			images: insight.seo?.ogImage
-				? [urlFor(insight.seo.ogImage).url()]
-				: insight.image?.asset?.url
-					? [insight.image.asset.url]
-					: ["/images/blogs/transport-logistics-products.jpg"],
-		},
-	};
+		path: `/insights/${slug}`,
+		type: "article",
+		publishedTime: insight.createdAt,
+		modifiedTime: insight.updatedAt || insight.createdAt,
+		section: insight.categories?.title ?? undefined,
+		image: ogImage,
+	});
 }
 
 // Structured data for the article

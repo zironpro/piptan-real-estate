@@ -15,69 +15,23 @@ import { PortfolioSection } from "@/features/home/section/portfolio";
 import { Testimonials } from "@/features/home/section/testimonials";
 import { WhyUsSection } from "@/features/home/section/why-us";
 
-const meta = {
-	title: "Legacy Infra Investments | Piptan Capital Middle-East",
-	description:
-		"Explore expertly curated UAE real estate opportunities designed to deliver rental income, high ROI, and long-term capital appreciation.",
-	keywords:
-		"Dubai real estate investment, luxury property UAE, commercial real estate Dubai, property investment portfolios",
-};
+import { buildMetadata } from "@/lib/seo";
 
 // Enable caching with revalidation every 10 minutes
 export const revalidate = 600;
 
-export const metadata: Metadata = {
-	title: meta.title,
-	description: meta.description,
-	keywords: meta.keywords,
-	authors: [{ name: "Piptan" }],
-	creator: "Piptan",
-	publisher: "Piptan",
-	formatDetection: {
-		email: false,
-		address: false,
-		telephone: false,
-	},
-	openGraph: {
-		type: "website",
-		title: meta.title,
-		description: meta.description,
-		url: "https://piptan.ae",
-		siteName: "Piptan Capital Middle-East",
-		locale: "en_US",
-		images: [
-			{
-				url: "/images/hero.webp",
-				width: 1200,
-				height: 630,
-				alt: "Piptan Luxury Real Estate",
-			},
-		],
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: meta.title,
-		description: meta.description,
-		images: ["/images/hero.webp"],
-		creator: "@piptan",
-	},
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			"max-video-preview": -1,
-			"max-image-preview": "large",
-			"max-snippet": -1,
-		},
-	},
-
-	alternates: {
-		canonical: "https://piptan.ae/",
-	},
-	metadataBase: new URL("https://piptan.ae"),
-};
+export const metadata: Metadata = buildMetadata({
+	title: "Real Estate Investment in Dubai & UAE | Piptan Investment",
+	description:
+		"Explore expertly curated UAE real estate opportunities designed to deliver rental income, high ROI, and long-term capital appreciation.",
+	path: "/",
+	keywords: [
+		"Dubai real estate investment",
+		"luxury property UAE",
+		"commercial real estate Dubai",
+		"property investment portfolios",
+	],
+});
 
 export default async function Home() {
 	const howToSchema = {

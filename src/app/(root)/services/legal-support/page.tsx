@@ -25,16 +25,22 @@ import {
 	whyLegalGuidanceMattersData,
 } from "./data";
 
-export const metadata: Metadata = {
-	title: "Legal Support for Real Estate Investment in the Dubai",
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+	title: "Legal Support for Real Estate Investment in Dubai | Piptan Investment",
 	description:
 		"Piptan Capital offers specialized legal support for property investors in Dubai and the UAE. Work with a trusted Dubai Investment Advisor for security.",
-	keywords:
-		"Dubai Investment Advisor, Legal Investment Advisor, UAE Investment Advisor, Investment Consultancy Dubai, real estate legal support Dubai, property investment advisory UAE",
-	alternates: {
-		canonical: "https://piptan.ae/services/legal-support",
-	},
-};
+	path: "/services/legal-support",
+	keywords: [
+		"Dubai Investment Advisor",
+		"Legal Investment Advisor",
+		"UAE Investment Advisor",
+		"Investment Consultancy Dubai",
+		"real estate legal support Dubai",
+		"property investment advisory UAE",
+	],
+});
 
 export default function LegalSupportPage() {
 	const serviceSchema = {

@@ -10,15 +10,14 @@ import { IconCollection } from "@/app/assets/icons";
 import { getFilteredInsightsWithParams } from "@/features/insights/actions/query";
 import { InsightsList } from "@/features/insights/components/insights-list";
 import { InsightsListSkeleton } from "@/features/insights/components/insights-list-skeleton";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
 	title: "Real Estate Insights & Market Analysis | Piptan Investment",
 	description:
 		"Explore market trends, property tips, and investment updates to help you stay ahead in the Dubai and UAE real estate world with confidence.",
-	alternates: {
-		canonical: "https://piptan.ae/insights",
-	},
-};
+	path: "/insights",
+});
 
 type SearchParams = Promise<{ q?: string; category?: string }>;
 

@@ -15,31 +15,6 @@ import "./globals.css";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://piptan.ae"),
-	openGraph: {
-		type: "website",
-		title: "Legacy Infra Investments | Piptan Capital Middle-East",
-		description:
-			"Explore expertly curated UAE real estate opportunities designed to deliver rental income, high ROI, and long-term capital appreciation.",
-		url: "https://piptan.ae",
-		siteName: "Piptan",
-		locale: "en_US",
-		images: [
-			{
-				url: "/images/hero.webp",
-				width: 1200,
-				height: 630,
-				alt: "Piptan Luxury Real Estate",
-			},
-		],
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Legacy Infra Investments | Piptan Capital Middle-East",
-		description:
-			"Explore expertly curated UAE real estate opportunities designed to deliver rental income, high ROI, and long-term capital appreciation.",
-		images: ["/images/hero.webp"],
-		creator: "@piptan",
-	},
 	icons: {
 		icon: "/favicon.ico",
 		apple: "/apple-icon.png",
@@ -61,9 +36,6 @@ export const metadata: Metadata = {
 			"max-image-preview": "large",
 			"max-snippet": -1,
 		},
-	},
-	alternates: {
-		canonical: "./",
 	},
 };
 

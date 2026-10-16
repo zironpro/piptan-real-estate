@@ -7,14 +7,14 @@ import { Separator } from "@/components/ui/separator";
 
 import { AboutHeroVideo } from "@/features/about/components/video";
 
-export const metadata: Metadata = {
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
 	title: "About Us | Piptan Investment UAE",
 	description:
 		"Learn about Piptan Capital, a specialist investment advisor guiding luxury real estate decisions in Dubai and the UAE.",
-	alternates: {
-		canonical: "https://piptan.ae/about",
-	},
-};
+	path: "/about",
+});
 
 // Enable caching with revalidation every 30 minutes (mostly static content)
 export const revalidate = 1800;

@@ -4,16 +4,20 @@ import Script from "next/script";
 
 import { AnimatedButton } from "@/components/ui/animated-button";
 
-export const metadata: Metadata = {
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
 	title: "Luxury Real Estate Dubai | Piptan Investment",
 	description:
 		"Exclusive luxury real estate opportunities in Dubai, including prime waterfront properties and high-end investments.",
-	keywords:
-		"Luxury Real Estate Dubai, Dubai Luxury Villas, Waterfront Properties Dubai, High-End UAE Real Estate",
-	alternates: {
-		canonical: "https://piptan.ae/services/luxury-real-estate",
-	},
-};
+	path: "/services/luxury-real-estate",
+	keywords: [
+		"Luxury Real Estate Dubai",
+		"Dubai Luxury Villas",
+		"Waterfront Properties Dubai",
+		"High-End UAE Real Estate",
+	],
+});
 
 export default function LuxuryRealEstatePage() {
 	const serviceSchema = {

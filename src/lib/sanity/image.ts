@@ -18,3 +18,14 @@ export const urlFor = (source: SanityImageSource) => {
 
 	return imageBuilder.format("webp").fit("crop");
 };
+
+export const urlForOgImage = (source: SanityImageSource) => {
+	return builder
+		.image(source)
+		.width(1200)
+		.height(630)
+		.fit("crop")
+		.format("jpg")
+		.quality(80);
+};
+

@@ -29,16 +29,23 @@ import {
 	whyShapesData,
 } from "./data";
 
-export const metadata: Metadata = {
-	title: "Property Valuation Services in Dubai | Piptan Capital",
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+	title: "Property Valuation Services in Dubai | Piptan Investment",
 	description:
 		"Get accurate property valuation backed by real market data. Piptan Capital delivers trusted Real Estate Investment Advisory for Dubai and UAE Property Investment.",
-	keywords:
-		"Dubai Property Investment, UAE Property Investment, Real Estate Investment Advisory, Investment Consultancy Dubai, High ROI Property Investment, Investment Portfolio Diversification, Property Valuation Dubai",
-	alternates: {
-		canonical: "https://piptan.ae/services/property-valuation",
-	},
-};
+	path: "/services/property-valuation",
+	keywords: [
+		"Dubai Property Investment",
+		"UAE Property Investment",
+		"Real Estate Investment Advisory",
+		"Investment Consultancy Dubai",
+		"High ROI Property Investment",
+		"Investment Portfolio Diversification",
+		"Property Valuation Dubai",
+	],
+});
 
 export default function PropertyValuationPage() {
 	const serviceSchema = {

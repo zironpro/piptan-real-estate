@@ -5,14 +5,14 @@ import Script from "next/script";
 
 import { Separator } from "@/components/ui/separator";
 
-export const metadata: Metadata = {
-	title: "Privacy Policy",
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+	title: "Privacy Policy | Piptan Investment UAE",
 	description:
 		"Privacy Policy for Piptan Capital L.L.C - Real Estate Investment Services in Dubai, UAE",
-	alternates: {
-		canonical: "https://piptan.ae/legal/privacy",
-	},
-};
+	path: "/legal/privacy",
+});
 
 export default function PrivacyPolicyPage() {
 	const currentYear = new Date().getFullYear();

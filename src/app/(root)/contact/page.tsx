@@ -8,14 +8,14 @@ import { CONTACT } from "@/constants";
 import { ContactForm } from "@/features/forms/contact-form/form";
 import { FaqSection } from "@/features/home/section/faq";
 
-export const metadata: Metadata = {
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
 	title: "Contact Us | Piptan Investment UAE",
 	description:
 		"Get in touch with Piptan Capital's luxury real estate and property investment advisors in Dubai.",
-	alternates: {
-		canonical: "https://piptan.ae/contact",
-	},
-};
+	path: "/contact",
+});
 
 export default function ContactPage() {
 	const contactPageSchema = {

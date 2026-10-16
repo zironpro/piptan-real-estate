@@ -21,15 +21,18 @@ import { CategoriesSelector } from "@/features/projects/components/categories-se
 import { PropertiesListSkeleton } from "@/features/properties/components/properties-list-skeleton";
 import { PropertyCard } from "@/features/properties/components/property-card";
 
+import { buildMetadata } from "@/lib/seo";
+
 const meta = {
 	title: "Real Estate Portfolio — Dubai & Abu Dhabi Projects | Piptan",
 	description:
 		"Explore Piptan's portfolio of premium real estate developments including The Oasis and Grand Polo by Emaar in Dubai.",
 };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
 	title: meta.title,
 	description: meta.description,
+	path: "/portfolio",
 	keywords: [
 		"Dubai real estate projects",
 		"Abu Dhabi property investment",
@@ -38,44 +41,7 @@ export const metadata: Metadata = {
 		"Dubai property investments",
 		"Abu Dhabi real estate opportunities",
 	],
-	openGraph: {
-		type: "website",
-		title: meta.title,
-		description: meta.description,
-		url: "https://piptan.ae/portfolio",
-		siteName: "Piptan Investment",
-		locale: "en_US",
-		images: [
-			{
-				url: "/images/hero.webp",
-				width: 1200,
-				height: 630,
-				alt: "Piptan UAE real estate portfolio in Dubai and Abu Dhabi",
-			},
-		],
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: meta.title,
-		description: meta.description,
-		images: ["/images/hero.webp"],
-	},
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			"max-video-preview": -1,
-			"max-image-preview": "large",
-			"max-snippet": -1,
-		},
-	},
-	alternates: {
-		canonical: "https://piptan.ae/portfolio",
-	},
-	metadataBase: new URL("https://piptan.ae"),
-};
+});
 
 // Enable caching with revalidation every 5 minutes
 export const revalidate = 300;

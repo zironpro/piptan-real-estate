@@ -25,16 +25,23 @@ import {
 	whyInvestorsData,
 } from "./data";
 
-export const metadata: Metadata = {
-	title: "Dubai Property Investment Advisor | Piptan Capital",
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+	title: "Dubai Property Investment Advisor | Piptan Investment",
 	description:
 		"Piptan Capital is a specialist Dubai Investment Advisor guiding luxury real estate investment in Dubai and UAE property investment decisions with data-driven.",
-	keywords:
-		"Dubai Investment Advisor, UAE Investment Advisor, Luxury Real Estate Investment Dubai, Dubai Property Investment, UAE Property Investment, Piptan Capital, real estate advisory UAE",
-	alternates: {
-		canonical: "https://piptan.ae/services/property-investment",
-	},
-};
+	path: "/services/property-investment",
+	keywords: [
+		"Dubai Investment Advisor",
+		"UAE Investment Advisor",
+		"Luxury Real Estate Investment Dubai",
+		"Dubai Property Investment",
+		"UAE Property Investment",
+		"Piptan Capital",
+		"real estate advisory UAE",
+	],
+});
 
 export default function PropertyInvestmentPage() {
 	const serviceSchema = {
